@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <span>Pharmacy App</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/">Home</button>
+  <!-- Customer Links -->
+  <ng-container *ngIf="authService.isAuthenticated() && userRole == 1">
+    <button mat-button routerLink="/medicines">Medicines</button>
+    <button mat-button routerLink="/cart">Cart</button>
+    <button mat-button routerLink="/orders">Orders</button>
+    <button mat-button [matMenuTriggerFor]="menu">Menue</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/profile">Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </ng-container>
+  <!-- Pharmacist Links -->
+  <ng-container *ngIf="authService.isAuthenticated() && userRole === 2">
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/medicines">Medicines</button>
+    <button mat-button routerLink="/orders">Orders</button>
+    <button mat-button routerLink="/reports">Reports</button>
+    <button mat-button (click)="logout()">Logout</button>
+  </ng-container>
+  <!-- Unauthenticated Links -->
+  <ng-container *ngIf="!authService.isAuthenticated()">
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Register</button>
+  </ng-container>
+</mat-toolbar>

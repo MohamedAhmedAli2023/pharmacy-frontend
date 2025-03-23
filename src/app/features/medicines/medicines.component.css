@@ -1,0 +1,23 @@
+.medicines-card {
+  max-width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  border-radius: 8px;
+}
+
+.me-2 {
+  margin-right: 8px;
+}
+
+@media (max-width: 576px) {
+  .medicines-card {
+    padding: 15px;
+  }
+}
